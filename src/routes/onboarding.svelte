@@ -1,24 +1,9 @@
-<script context="module">
-	/** @type {import('@sveltejs/kit').Load} */
-	export async function load({ stuff }) {
-		return {
-			props: {
-				user: stuff.user || false,
-				picture: stuff.picture || false
-			}
-		};
-	}
-</script>
-
 <script>
-	import { auth, db } from '$lib/fbapp';
-	import { doc, setDoc } from 'firebase/firestore';
-	import { signInWithCustomToken } from 'firebase/auth';
 	import { goto } from '$app/navigation';
+	import { user } from '$lib/sessionStore';
+	import { supabase } from '$lib/supabaseClient';
 
-	export let user;
-	export let picture;
-	let email = user ? user.user.email : '';
+	let email = $user ? $user.user_metadata.email : '';
 	let university = '';
 	let year = 2022;
 	let position = '';
@@ -26,40 +11,40 @@
 	let about = '';
 
 	const submit = async () => {
-		const fbuser = await signInWithCustomToken(auth, user.fbtoken);
-		if (fbuser.user) {
-			const data = {
-				about: about,
-				company: company,
-				email: email,
-				first_name: user.user.localizedFirstName,
-				last_name: user.user.localizedLastName,
-				position: position,
-				university: university,
-				year: year
-			};
-			setDoc(doc(db, 'Users', fbuser.user.uid), data)
-				.then(() => goto('/profile'))
-				.catch((e) => console.log(e));
-		}
+		const updates = {
+			id: $user.id,
+			updated_at: new Date(),
+			email: email,
+			full_name: $user.user_metadata.full_name,
+			avatar_url: $user.user_metadata.avatar_url,
+			university: university,
+			cur_position: position,
+			grad_year: year,
+			about: about,
+			company: company
+		};
+		const { error } = await supabase.from('profiles').upsert(updates, {
+			returning: 'minimal' // Don't return the value after inserting
+		});
+		if (error) alert(error.message);
+		else goto('/profile');
 	};
 </script>
 
-{#if user}
+{#if $user}
 	<div class="container py-5 h-100">
 		<div class="card">
 			<div class="card-body">
 				<div class="mt-3 mb-4 text-center">
 					<img
-						src={picture.picture}
+						src={$user.user_metadata.avatar_url}
 						class="rounded-circle img-fluid"
 						style="width: 100px;"
 						alt="avatar"
 					/>
 				</div>
 				<h4 class="mb-5 text-center">
-					Welcome, {user.user.localizedFirstName}
-					{user.user.localizedLastName}
+					Welcome, {$user.user_metadata.full_name}
 				</h4>
 				<h5 class="mb-2">Please let us know about yourself:</h5>
 				<form on:submit|preventDefault={submit}>
