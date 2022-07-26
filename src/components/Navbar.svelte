@@ -1,6 +1,14 @@
 <script>
-	export let user;
-	export let picture;
+	import { user } from '$lib/sessionStore';
+	import { handleLogin } from '$lib/supabaseAuth';
+
+	const loginRedirect = async () => {
+		try {
+			handleLogin();
+		} catch {
+			alert('Login redirect failed');
+		}
+	};
 </script>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -62,12 +70,12 @@
 				</li>
 			</ul>
 			<div class="d-flex">
-				{#if user}
+				{#if $user}
 					<div class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row">
 						<div class="nav-item">
 							<a href="/profile">
 								<img
-									src={picture.picture}
+									src={$user.user_metadata.avatar_url}
 									class="rounded-circle img-fluid"
 									style="width: 50px;"
 									alt="avatar"
@@ -76,7 +84,9 @@
 						</div>
 					</div>
 				{:else}
-					<a class="btn btn-outline-success" href="/api/login">Get Started</a>
+					<button class="btn btn-outline-success" on:click|preventDefault={loginRedirect}
+						>Get Started</button
+					>
 				{/if}
 			</div>
 		</div>
