@@ -8,7 +8,7 @@ export default {
 			// these options are set automatically — see below
 			pages: 'build',
 			assets: 'build',
-			fallback: null,
+			fallback: 'index.html',
 			precompress: false
 		}),
 
@@ -24,7 +24,7 @@ export default {
 
 		prerender: {
 			// This can be false if you're using a fallback (i.e. SPA mode)
-			default: true
+			default: false
 		}
 	}
 };
