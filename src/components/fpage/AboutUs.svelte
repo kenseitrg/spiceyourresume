@@ -12,20 +12,20 @@
 			<a
 				class="display-5 mx-5 text-decoration-none link-dark"
 				href="https://www.facebook.com/spiceyourresume/"
-				><img src="icons/facebook.svg" alt="instagramm-icon" width="64" height="64" /></a
+				><img src="/icons/facebook.svg" alt="instagramm-icon" width="64" height="64" /></a
 			>
 			<a
 				class="display-5 mx-5 text-decoration-none link-dark"
 				href="https://www.instagram.com/spiceyourresume/"
-				><img src="icons/instagram.svg" alt="instagramm-icon" width="64" height="64" /></a
+				><img src="/icons/instagram.svg" alt="instagramm-icon" width="64" height="64" /></a
 			>
 			<a
 				class="display-5 mx-5 text-decoration-none link-dark"
 				href="https://www.linkedin.com/company/spiceyourresume/"
-				><img src="icons/linkedin.svg" alt="instagramm-icon" width="64" height="64" /></a
+				><img src="/icons/linkedin.svg" alt="instagramm-icon" width="64" height="64" /></a
 			>
 			<a class="display-5 mx-5 text-decoration-none link-dark" href="https://wa.me/971547469941"
-				><img src="icons/whatsapp.svg" alt="instagramm-icon" width="64" height="64" /></a
+				><img src="/icons/whatsapp.svg" alt="instagramm-icon" width="64" height="64" /></a
 			>
 		</div>
 	</div>

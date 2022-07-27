@@ -14,7 +14,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="/">
-			<img src="Logo.webp" alt="logo" />
+			<img src="/Logo.webp" alt="logo" />
 			Spice Your Resume
 		</a>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">

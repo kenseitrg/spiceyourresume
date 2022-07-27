@@ -10,7 +10,7 @@
 		</div>
 		<div class="col-12 col-sm-10 col-lg-6">
 			<img
-				src="background2.webp"
+				src="/background2.webp"
 				class="d-block mx-lg-auto img-fluid"
 				alt="Bootstrap Themes"
 				loading="lazy"
