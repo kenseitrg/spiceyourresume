@@ -1,18 +1,16 @@
-import adapter from '@sveltejs/adapter-auto';
 import preprocess from 'svelte-preprocess';
+import adapter from '@sveltejs/adapter-auto';
 
 export default {
 	kit: {
-		adapter: adapter({}),
+		adapter: adapter({})
+	},
 
-		vite: {
-			css: {
-				preprocessorOptions: {
-					scss: {
-						additionalData: '@use "src/variables.scss" as *;'
-					}
-				}
+	preprocess: [
+		preprocess({
+			scss: {
+				prependData: '@use "src/variables.scss" as *;'
 			}
-		}
-	}
+		})
+	]
 };
