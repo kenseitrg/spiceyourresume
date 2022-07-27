@@ -1,3 +1,10 @@
+<script>
+	import fb_icon from '../../../static/icons/facebook.svg';
+	import ig_icon from '../../../static/icons/instagram.svg';
+	import ln_icon from '../../../static/icons/linkedin.svg';
+	import wa_icon from '../../../static/icons/whatsapp.svg';
+</script>
+
 <div class="container col-xxl-10 px-4 py-5 text-center bg-light my-img">
 	<div class="col-md-10 p-lg-5 mx-auto my-5">
 		<h1 class="display-5 fw-bold lh-1">A Bit About Us</h1>
@@ -12,20 +19,20 @@
 			<a
 				class="display-5 mx-5 text-decoration-none link-dark"
 				href="https://www.facebook.com/spiceyourresume/"
-				><img src="/icons/facebook.svg" alt="instagramm-icon" width="64" height="64" /></a
+				><img src={fb_icon} alt="facebook-icon" width="64" height="64" /></a
 			>
 			<a
 				class="display-5 mx-5 text-decoration-none link-dark"
 				href="https://www.instagram.com/spiceyourresume/"
-				><img src="/icons/instagram.svg" alt="instagramm-icon" width="64" height="64" /></a
+				><img src={ig_icon} alt="instagramm-icon" width="64" height="64" /></a
 			>
 			<a
 				class="display-5 mx-5 text-decoration-none link-dark"
 				href="https://www.linkedin.com/company/spiceyourresume/"
-				><img src="/icons/linkedin.svg" alt="instagramm-icon" width="64" height="64" /></a
+				><img src={ln_icon} alt="instagramm-icon" width="64" height="64" /></a
 			>
 			<a class="display-5 mx-5 text-decoration-none link-dark" href="https://wa.me/971547469941"
-				><img src="/icons/whatsapp.svg" alt="instagramm-icon" width="64" height="64" /></a
+				><img src={wa_icon} alt="instagramm-icon" width="64" height="64" /></a
 			>
 		</div>
 	</div>

@@ -1,6 +1,7 @@
 <script>
 	import { user } from '$lib/sessionStore';
 	import { handleLogin } from '$lib/supabaseAuth';
+	import logo from '../../static/Logo.webp';
 
 	const loginRedirect = async () => {
 		try {
@@ -14,7 +15,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="/">
-			<img src="/Logo.webp" alt="logo" />
+			<img src={logo} alt="logo" />
 			Spice Your Resume
 		</a>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">

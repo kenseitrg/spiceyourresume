@@ -1,6 +1,6 @@
 <script>
 	import { handleLogin } from '$lib/supabaseAuth';
-
+	import background from '../../../static/background1.png';
 	const loginRedirect = async () => {
 		try {
 			handleLogin();
@@ -14,7 +14,7 @@
 	<div class="row flex-lg-row-reverse align-items-center g-5">
 		<div class="col-12 col-sm-10 col-lg-6">
 			<img
-				src="/background1.png"
+				src={background}
 				class="d-block mx-lg-auto img-fluid"
 				alt="Bootstrap Themes"
 				loading="lazy"

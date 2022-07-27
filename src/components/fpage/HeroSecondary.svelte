@@ -1,3 +1,7 @@
+<script>
+	import background from '../../../static/background2.webp';
+</script>
+
 <div class="container col-xxl-10 px-4 py-5">
 	<div class="row flex-lg-row-reverse align-items-center g-5">
 		<div class="col-lg-6">
@@ -10,7 +14,7 @@
 		</div>
 		<div class="col-12 col-sm-10 col-lg-6">
 			<img
-				src="/background2.webp"
+				src={background}
 				class="d-block mx-lg-auto img-fluid"
 				alt="Bootstrap Themes"
 				loading="lazy"
