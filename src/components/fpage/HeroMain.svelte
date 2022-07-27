@@ -1,3 +1,15 @@
+<script>
+	import { handleLogin } from '$lib/supabaseAuth';
+
+	const loginRedirect = async () => {
+		try {
+			handleLogin();
+		} catch {
+			alert('Login redirect failed');
+		}
+	};
+</script>
+
 <div class="container col-xxl-10 px-4 py-5">
 	<div class="row flex-lg-row-reverse align-items-center g-5">
 		<div class="col-12 col-sm-10 col-lg-6">
@@ -19,7 +31,9 @@
 				receive an initial quote.
 			</p>
 			<div class="d-grid gap-2 d-md-flex justify-content-md-start">
-				<a href="/api/login" class="btn btn-success btn-lg px-4 me-md-2">Get Started</a>
+				<button class="btn btn-success btn-lg px-4 me-md-2" on:click|preventDefault={loginRedirect}
+					>Get Started</button
+				>
 			</div>
 		</div>
 	</div>

@@ -1,34 +1,36 @@
 <script>
-	import { collection, getDocs } from 'firebase/firestore';
-	import { ref, getDownloadURL } from 'firebase/storage';
-	import { db, storage } from '../../lib/fbapp';
+	import { supabase } from '$lib/supabaseClient.js';
+
+	const getPosts = async () => {
+		const { data: blog, error } = await supabase.from('blog').select('*');
+		if (error) throw error;
+		return blog;
+	};
 </script>
 
 <div class="container">
 	<div class="row my-3">
 		<div class="col-xxl-10">
-			{#await getDocs(collection(db, 'Blog')) then docs}
-				{#each docs.docs as doc}
+			{#await getPosts() then blog}
+				{#each blog as bpost}
 					<div
 						class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
 					>
 						<div class="col p-4 d-flex flex-column position-static">
-							<h3 class="mb-0">{doc.data().title}</h3>
-							<div class="mb-1 text-muted">{doc.data().date.toDate().toDateString()}</div>
-							<p class="card-text mb-auto">{doc.data().short_text}</p>
-							<a href="blog/page-{doc.id}" class="stretched-link">Continue reading</a>
+							<h3 class="mb-0">Title</h3>
+							<div class="mb-1 text-muted">{new Date(bpost.created_at).toDateString()}</div>
+							<p class="card-text mb-auto">{bpost.short_text}</p>
+							<a href="blog/page-{bpost.id}" class="stretched-link">Continue reading</a>
 						</div>
 						<div class="col-auto d-none d-lg-block">
-							{#await getDownloadURL(ref(storage, doc.data().blog_img)) then url}
-								<div class="crop">
-									<img src={url} alt="blog thumbnail" height="250" width="250" />
-								</div>
-							{/await}
+							<div class="crop">
+								<img src={bpost.img_url} alt="blog thumbnail" height="250" width="250" />
+							</div>
 						</div>
 					</div>
 				{/each}
 			{:catch error}
-				<p>error</p>
+				<p>{JSON.stringify(error)}</p>
 			{/await}
 		</div>
 	</div>
