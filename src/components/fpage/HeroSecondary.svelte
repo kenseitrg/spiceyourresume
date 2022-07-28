@@ -1,5 +1,5 @@
 <script>
-	import background from '../../../static/background2.webp';
+	import background from '../../static/background2.webp';
 </script>
 
 <div class="container col-xxl-10 px-4 py-5">

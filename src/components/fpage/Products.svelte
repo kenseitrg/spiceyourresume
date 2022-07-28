@@ -1,6 +1,6 @@
 <script>
-	import profile_img from '../../../static/profile-help.webp';
-	import cv_img from '../../../static/resume-writing.webp';
+	import profile_img from '../../static/profile-help.webp';
+	import cv_img from '../../static/resume-writing.webp';
 </script>
 
 <div class="container col-xxl-10 px-4 py-5">

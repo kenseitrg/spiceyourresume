@@ -1,8 +1,8 @@
 <script>
-	import fb_icon from '../../../static/icons/facebook.svg';
-	import ig_icon from '../../../static/icons/instagram.svg';
-	import ln_icon from '../../../static/icons/linkedin.svg';
-	import wa_icon from '../../../static/icons/whatsapp.svg';
+	import fb_icon from '../../static/icons/facebook.svg';
+	import ig_icon from '../../static/icons/instagram.svg';
+	import ln_icon from '../../static/icons/linkedin.svg';
+	import wa_icon from '../../static/icons/whatsapp.svg';
 </script>
 
 <div class="container col-xxl-10 px-4 py-5 text-center bg-light my-img">

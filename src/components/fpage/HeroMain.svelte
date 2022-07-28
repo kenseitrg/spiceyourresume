@@ -1,6 +1,6 @@
 <script>
 	import { handleLogin } from '$lib/supabaseAuth';
-	import background from '../../../static/background1.png';
+	import background from '../../static/background1.png';
 	const loginRedirect = async () => {
 		try {
 			handleLogin();

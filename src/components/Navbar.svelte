@@ -1,7 +1,7 @@
 <script>
 	import { user } from '$lib/sessionStore';
 	import { handleLogin } from '$lib/supabaseAuth';
-	import logo from '../../static/Logo.webp';
+	import logo from '../static/Logo.webp';
 
 	const loginRedirect = async () => {
 		try {
