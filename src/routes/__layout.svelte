@@ -13,9 +13,16 @@
 
 	user.set(supabase.auth.user());
 
-	supabase.auth.onAuthStateChange((state, session) => {
+	supabase.auth.onAuthStateChange(async (state, session) => {
 		if (state == 'SIGNED_IN') {
 			user.set(session.user);
+			let { data: profiles, error } = await supabase
+				.from('profiles')
+				.select('id')
+				.eq('id', session?.user.id);
+			if (error) throw error;
+			if (profiles?.length === 0) goto('/onboarding');
+			else goto('/profile');
 		} else {
 			user.set(false);
 			if (browser) {
